@@ -106,3 +106,8 @@ dist
 
 # package-lock.json
 package-lock.json
+
+# De esta linea en adelante estan los archivos que quiero ignorar en mi repositorio git
+api/node_modules/
+client/node_modules/
+api/.env
