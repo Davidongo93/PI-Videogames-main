@@ -1,0 +1,255 @@
+Starting the development server...
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\webpack\lib\util\createHash.js:135:53)
+    at NormalModule._initBuildHash (C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\webpack\lib\NormalModule.js:417:16)
+    at handleParseError (C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\webpack\lib\NormalModule.js:471:10)
+    at C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\webpack\lib\NormalModule.js:503:5
+    at C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\webpack\lib\NormalModule.js:358:12
+    at C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\loader-runner\lib\LoaderRunner.js:373:3
+    at iterateNormalLoaders (C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\loader-runner\lib\LoaderRunner.js:214:10) 
+    at iterateNormalLoaders (C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\loader-runner\lib\LoaderRunner.js:221:10) 
+C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\react-scripts\scripts\start.js:19
+  throw err;
+  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:71:19)
+    at Object.createHash (node:crypto:133:10)
+    at module.exports (C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\webpack\lib\util\createHash.js:135:53)
+    at NormalModule._initBuildHash (C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\webpack\lib\NormalModule.js:417:16)        
+    at C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\webpack\lib\NormalModule.js:452:10
+    at C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\webpack\lib\NormalModule.js:323:13
+    at C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\loader-runner\lib\LoaderRunner.js:367:11
+    at C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\loader-runner\lib\LoaderRunner.js:233:18
+    at context.callback (C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\loader-runner\lib\LoaderRunner.js:111:13)
+    at C:\Users\Dave\Documents\Henrywin\PI-Videogames-main\client\node_modules\babel-loader\lib\index.js:59:103 {
+  opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ],
+  library: 'digital envelope routines',
+  reason: 'unsupported',
+  code: 'ERR_OSSL_EVP_UNSUPPORTED'
+}
+
+Node.js v18.15.0
+
+Dave@DESKTOP-EMG8EAG MINGW64 ~/Documents/Henrywin/PI-Videogames-main/client (master)
+$
+ *  Historial restaurado 
+
+
+Dave@DESKTOP-EMG8EAG MINGW64 ~/Documents/Henrywin/PI-Videogames-main (master)
+$ cd client
+
+Dave@DESKTOP-EMG8EAG MINGW64 ~/Documents/Henrywin/PI-Videogames-main/client (master)
+$ npm audit fix 
+
+added 1 package, changed 1 package, and audited 1975 packages in 30s
+
+188 packages are looking for funding
+  run `npm fund` for details
+
+# npm audit report
+
+ansi-html  <0.0.8
+Severity: high
+Uncontrolled Resource Consumption in ansi-html - https://github.com/advisories/GHSA-whgm-jr23-g3j9
+fix available via `npm audit fix --force`
+Will install react-scripts@5.0.1, which is a breaking change
+node_modules/ansi-html
+  @pmmmwh/react-refresh-webpack-plugin  <=0.5.0-rc.6
+  Depends on vulnerable versions of ansi-html
+  node_modules/@pmmmwh/react-refresh-webpack-plugin
+    react-scripts  >=0.10.0-alpha.328cb32e
+    Depends on vulnerable versions of @pmmmwh/react-refresh-webpack-plugin
+    Depends on vulnerable versions of @svgr/webpack
+    Depends on vulnerable versions of optimize-css-assets-webpack-plugin
+    Depends on vulnerable versions of react-dev-utils
+    Depends on vulnerable versions of webpack
+    Depends on vulnerable versions of webpack-dev-server
+    Depends on vulnerable versions of workbox-webpack-plugin
+    node_modules/react-scripts
+  webpack-dev-server  2.0.0-beta - 4.7.2
+  Depends on vulnerable versions of ansi-html
+  Depends on vulnerable versions of chokidar
+  Depends on vulnerable versions of selfsigned
+  node_modules/webpack-dev-server
+
+browserslist  4.0.0 - 4.16.4
+Severity: moderate
+Regular Expression Denial of Service in browserslist - https://github.com/advisories/GHSA-w8qv-6jwh-64r5
+fix available via `npm audit fix`
+node_modules/react-dev-utils/node_modules/browserslist
+  react-dev-utils  0.5.2 - 12.0.0-next.60
+  Depends on vulnerable versions of browserslist
+  Depends on vulnerable versions of immer
+  Depends on vulnerable versions of loader-utils
+  Depends on vulnerable versions of recursive-readdir
+  Depends on vulnerable versions of shell-quote
+  node_modules/react-dev-utils
+
+ejs  <3.1.7
+Severity: critical
+ejs template injection vulnerability - https://github.com/advisories/GHSA-phwq-j96m-2c2q
+fix available via `npm audit fix --force`
+Will install react-scripts@5.0.1, which is a breaking change
+node_modules/ejs
+  @surma/rollup-plugin-off-main-thread  <=2.1.0
+  Depends on vulnerable versions of ejs
+  node_modules/@surma/rollup-plugin-off-main-thread
+    workbox-build  5.0.0-alpha.0 - 6.3.0
+    Depends on vulnerable versions of @surma/rollup-plugin-off-main-thread
+    node_modules/workbox-build
+      workbox-webpack-plugin  5.0.0-alpha.0 - 5.1.4 || 6.2.2 - 6.3.0
+      Depends on vulnerable versions of workbox-build
+      node_modules/workbox-webpack-plugin
+
+glob-parent  <5.1.2
+Severity: high
+glob-parent before 5.1.2 vulnerable to Regular Expression Denial of Service in enclosure regex - https://github.com/advisories/GHSA-ww39-953v-wcq6
+fix available via `npm audit fix --force`
+Will install react-scripts@5.0.1, which is a breaking change
+node_modules/watchpack-chokidar2/node_modules/glob-parent
+node_modules/webpack-dev-server/node_modules/glob-parent
+  chokidar  1.0.0-rc1 - 2.1.8
+  Depends on vulnerable versions of glob-parent
+  node_modules/watchpack-chokidar2/node_modules/chokidar
+  node_modules/webpack-dev-server/node_modules/chokidar
+    watchpack-chokidar2  *
+    Depends on vulnerable versions of chokidar
+    node_modules/watchpack-chokidar2
+      watchpack  1.7.2 - 1.7.5
+      Depends on vulnerable versions of watchpack-chokidar2
+      node_modules/watchpack
+        webpack  4.44.0 - 4.46.0
+        Depends on vulnerable versions of watchpack
+        node_modules/webpack
+
+immer  <=9.0.5
+Severity: critical
+Prototype Pollution in immer - https://github.com/advisories/GHSA-c36v-fmgq-m8hx
+Prototype Pollution in immer - https://github.com/advisories/GHSA-33f9-j839-rf8h
+fix available via `npm audit fix`
+node_modules/immer
+
+loader-utils  2.0.0 - 2.0.3
+Severity: critical
+Prototype pollution in webpack loader-utils - https://github.com/advisories/GHSA-76p3-8jx3-jpfq
+loader-utils is vulnerable to Regular Expression Denial of Service (ReDoS) - https://github.com/advisories/GHSA-hhq3-ff78-jv3g
+loader-utils is vulnerable to Regular Expression Denial of Service (ReDoS) via url variable - https://github.com/advisories/GHSA-3rfm-jhwj-7488
+fix available via `npm audit fix`
+node_modules/react-dev-utils/node_modules/loader-utils
+
+minimatch  <3.0.5
+Severity: high
+minimatch ReDoS vulnerability - https://github.com/advisories/GHSA-f8q6-p94x-37v3
+fix available via `npm audit fix`
+node_modules/recursive-readdir/node_modules/minimatch
+  recursive-readdir  1.2.0 - 2.2.2
+  Depends on vulnerable versions of minimatch
+  node_modules/recursive-readdir
+
+node-forge  <=1.2.1
+Severity: high
+Prototype Pollution in node-forge debug API. - https://github.com/advisories/GHSA-5rrq-pxf6-6jx5
+URL parsing in node-forge could lead to undesired behavior. - https://github.com/advisories/GHSA-gf8q-jrpm-jvxq
+Improper Verification of Cryptographic Signature in `node-forge` - https://github.com/advisories/GHSA-2r2c-g63r-vccr
+Open Redirect in node-forge - https://github.com/advisories/GHSA-8fr3-hfg3-gpgp
+Improper Verification of Cryptographic Signature in node-forge - https://github.com/advisories/GHSA-cfm4-qjh2-4765
+Improper Verification of Cryptographic Signature in node-forge - https://github.com/advisories/GHSA-x4jg-mjrx-434g
+fix available via `npm audit fix --force`
+Will install react-scripts@5.0.1, which is a breaking change
+node_modules/node-forge
+  selfsigned  1.1.1 - 1.10.14
+  Depends on vulnerable versions of node-forge
+  node_modules/selfsigned
+
+nth-check  <2.0.1
+Severity: high
+Inefficient Regular Expression Complexity in nth-check - https://github.com/advisories/GHSA-rp65-9cf3-cjxr
+fix available via `npm audit fix --force`
+Will install react-scripts@5.0.1, which is a breaking change
+node_modules/svgo/node_modules/nth-check
+  css-select  <=3.1.0
+  Depends on vulnerable versions of nth-check
+  node_modules/svgo/node_modules/css-select
+    svgo  1.0.0 - 1.3.2
+    Depends on vulnerable versions of css-select
+    node_modules/svgo
+      @svgr/plugin-svgo  <=5.5.0
+      Depends on vulnerable versions of svgo
+      node_modules/@svgr/plugin-svgo
+        @svgr/webpack  4.0.0 - 5.5.0
+        Depends on vulnerable versions of @svgr/plugin-svgo
+        node_modules/@svgr/webpack
+      postcss-svgo  4.0.0-nightly.2020.1.9 - 5.0.0-rc.2
+      Depends on vulnerable versions of svgo
+      node_modules/postcss-svgo
+        cssnano-preset-default  <=4.0.8
+        Depends on vulnerable versions of postcss-svgo
+        node_modules/cssnano-preset-default
+          cssnano  4.0.0-nightly.2020.1.9 - 4.1.11
+          Depends on vulnerable versions of cssnano-preset-default
+          node_modules/cssnano
+            optimize-css-assets-webpack-plugin  3.2.1 || 5.0.0 - 5.0.8
+            Depends on vulnerable versions of cssnano
+            node_modules/optimize-css-assets-webpack-plugin
+
+shell-quote  <=1.7.2
+Severity: critical
+Improper Neutralization of Special Elements used in a Command in Shell-quote - https://github.com/advisories/GHSA-g4rg-993r-mgx7
+fix available via `npm audit fix`
+node_modules/shell-quote
+
+31 vulnerabilities (1 low, 1 moderate, 20 high, 9 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Dave@DESKTOP-EMG8EAG MINGW64 ~/Documents/Henrywin/PI-Videogames-main/client (master)
+$ npm audit fix --force
+npm WARN using --force Recommended protections disabled.
+npm WARN audit Updating react-scripts to 5.0.1, which is a SemVer major change.
+npm WARN deprecated rollup-plugin-terser@7.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+[##################] | reify:@typescript-eslint/scope-manager: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/scope-manager/-/scope-manager-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] - reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-[##################] \ reify:@typescript-eslint/eslint-plugin: http fetch GET 200 https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-
+
+added 190 packages, removed 742 packages, changed 380 packages, and audited 1423 packages in 3m
+
+232 packages are looking for funding
+  run `npm fund` for details
+
+# npm audit report
+
+nth-check  <2.0.1
+Severity: high
+Inefficient Regular Expression Complexity in nth-check - https://github.com/advisories/GHSA-rp65-9cf3-cjxr
+fix available via `npm audit fix --force`
+Will install react-scripts@2.1.3, which is a breaking change
+node_modules/svgo/node_modules/nth-check
+  css-select  <=3.1.0
+  Depends on vulnerable versions of nth-check
+  node_modules/svgo/node_modules/css-select
+    svgo  1.0.0 - 1.3.2
+    Depends on vulnerable versions of css-select
+    node_modules/svgo
+      @svgr/plugin-svgo  <=5.5.0
+      Depends on vulnerable versions of svgo
+      node_modules/@svgr/plugin-svgo
+        @svgr/webpack  4.0.0 - 5.5.0
+        Depends on vulnerable versions of @svgr/plugin-svgo
+        node_modules/@svgr/webpack
+          react-scripts  >=2.1.4
+          Depends on vulnerable versions of @svgr/webpack
+          node_modules/react-scripts
+
+6 high severity vulnerabilities
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Dave@DESKTOP-EMG8EAG MINGW64 ~/Documents/Henrywin/PI-Videogames-main/client (master)
+$
