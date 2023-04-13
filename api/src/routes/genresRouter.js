@@ -2,11 +2,11 @@ const { Router } = require('express');
 const genresRouter = Router();
 
 // Import handlers
-const getGenres = require ('../handlers/genresHandlers')
+const getGenresHandler = require ('../handlers/genresHandlers')
 
 
 // Getting routes
-genresRouter.get('/',getGenres);
+genresRouter.get('/',getGenresHandler);
 
 
 module.exports = genresRouter;
