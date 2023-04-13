@@ -7,8 +7,9 @@ module.exports = (sequelize) => {
 
     id: {
       type: DataTypes.UUID,
-      defaultValue: sequelize.UUIDV4,
-      primaryKey: true
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
+    
     },
     name: {
       type: DataTypes.STRING,
@@ -34,5 +35,7 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       allowNull: false
     }
-  });
+  },
+  {timestamps:false}
+  );
 };
