@@ -1,11 +1,21 @@
-const createVideoGame = require ('../controllers/videogamesControllers.js')
+const axios = require('axios');
+const {Videogame} = require('../db.js');
+const {createVideoGame,getVideogameById, getVideogameByName, getAllGames} = require ('../controllers/videogamesControllers.js')
 
 // Getting handlers.
 
-const getVideogamesHandler = (req,res)=>{
+const getVideogamesHandler = async (req,res)=>  {
     const {name} = req.query;
-    if (name) res.send(`Buscando juego llamado ${name}`);
-    else res.send ('se muestran todos los juegos');
+
+    const results = name?await getVideogameByName(name):await getAllGames();
+
+    if (name){
+         res.send( results);
+
+} else{
+        res.send (await results);
+        console.log( await results);
+    }
 
     // Obtiene un arreglo de objetos, donde cada objeto es un videojuego con su información.
     /* Esta ruta debe obtener los primeros 15 videojuegos que se encuentren con la palabra recibida por query.
@@ -14,23 +24,30 @@ const getVideogamesHandler = (req,res)=>{
     Debe buscar tanto los de la API como los de la base de datos. */
 };
 
-const getVideogameByIdHandler = (req,res)=>{
+
+const getVideogameByIdHandler = async (req,res)=>{
     const {id} = req.params;
-    res.send(`id imput example is ${id}`)
-/* Esta ruta obtiene el detalle de un videojuego específico. Es decir que devuelve un objeto con la información pedida en el detalle de un videojuego.
-El videojuego es recibido por parámetro (ID).
-Tiene que incluir los datos del género del videojuego al que está asociado.
-Debe funcionar tanto para los videojuegos de la API como para los de la base de datos. */
+    const source = isNaN(id)?"db":"api";
+    try {
+        const videoGame = await getVideogameById(id,source)
+        res.status(200).json(videoGame);
+        console.log(videoGame);
+    } catch (error) {
+        res.status(400).json({error:error.message});
+    }
 };
+
+
 
 // Posting handlers
 const postVideogamesHandler = async (req,res)=>{
 
     try {
-    const {name,description,platforms,image,release,rating}= req.body;
-    const newVideoGame = await createVideoGame(name,description,platforms,image,release,rating);
+    const {name,description,platforms,image,release,rating,genre}= req.body;
+    const newVideoGame = await createVideoGame(name,description,platforms,image,release,rating,genre);
+    // newVideoGame.addGenre(genreId);
     res.status(201).json(newVideoGame);
-
+        console.log(newVideoGame.dataValues);
     } catch (error) {
         res.status(400).json({error:error.message});
     }
@@ -38,12 +55,7 @@ const postVideogamesHandler = async (req,res)=>{
 /*  Esta ruta recibirá todos los datos necesarios para crear un videojuego y relacionarlo con sus géneros solicitados.
 Toda la información debe ser recibida por body.
 Debe crear un videojuego en la base de datos, y este debe estar relacionado con sus géneros indicados (al menos uno).
-Nombre. *
-Descripción. *
-Plataformas. *
-Imagen. *
-Fecha de lanzamiento. *
-Rating. * */
+ */
 };
 
 module.exports = {

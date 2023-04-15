@@ -7,11 +7,11 @@ const {
     postVideogamesHandler
 } = require ('../handlers/videogamesHandlers.js')
 
-// Getting Routes.
+// Get Routes.
 videogamesRouter.get('/',getVideogamesHandler);
 videogamesRouter.get('/:id',getVideogameByIdHandler);
 
-// Posting Routes.
+// Post Routes.
 videogamesRouter.post('/', postVideogamesHandler);
 
 module.exports = videogamesRouter;
