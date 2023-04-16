@@ -7,10 +7,10 @@ const {KEY,URL} = process.env;
 //Controller post videogame.
 const createVideoGame = async (name,description,platforms,image,release,rating,genre) => {
     return await Videogame.create({name,description,platforms,image,release,rating,genre});
-}
+};
 
 //controller get videogame by id.
-
+// ! PENDIENTES Tiene que incluir los datos del género del videojuego al que está asociado.
 const  getVideogameById = async (id,source) => {
         const response = 
         source === "api"
@@ -20,7 +20,6 @@ const  getVideogameById = async (id,source) => {
             const { name, description, released, platforms } = response.data;
             return { name, description, released, platforms };
           } else {
-            // Si la fuente es una base de datos, devuelve los datos tal cual
             return response;
           }
     };
@@ -32,6 +31,7 @@ const cleanArray = (arr)=>
             return{
                 id:elem.id,
                 name:elem.name,
+                description:elem.description,
                 platform:"NIY",//aqui debe ir un array con las plataformas obtenidas.
                 image:elem.background_image,
                 released:elem.released,
@@ -49,7 +49,6 @@ const cleanArray = (arr)=>
     };
 
 // controller get games by name.
-
 const getVideogameByName = async (name) => {
   const dbVideogames = await Videogame.findAll({
     where: {
@@ -62,13 +61,16 @@ const getVideogameByName = async (name) => {
   const apiVideogamesRaw = (await axios.get(`${URL}/games?key=${KEY}`)).data.results;
   const apiVideogames = cleanArray(apiVideogamesRaw);
   const filteredApi = apiVideogames.filter((game) => game.name.toLowerCase().includes(name.toLowerCase()));
-  return [...dbVideogames, ...filteredApi];
+  const result = [...dbVideogames, ...filteredApi];
+  if (result.length === 0) {
+    return { message: `No se encontró ningún videojuego que coincida con: '${name}'.` };
+  }
+    return result;
 };
-
 
 module.exports = {
     createVideoGame,
     getVideogameById,
     getAllGames,
     getVideogameByName
-}
+};

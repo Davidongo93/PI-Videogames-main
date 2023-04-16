@@ -3,25 +3,18 @@ const {Videogame} = require('../db.js');
 const {createVideoGame,getVideogameById, getVideogameByName, getAllGames} = require ('../controllers/videogamesControllers.js')
 
 // Getting handlers.
-
+// Esta ruta debe obtener los primeros 15 videojuegos que se encuentren con la palabra recibida por query.
 const getVideogamesHandler = async (req,res)=>  {
     const {name} = req.query;
-
     const results = name?await getVideogameByName(name):await getAllGames();
 
     if (name){
-         res.send( results);
+         res.send(await results);
 
 } else{
         res.send (await results);
-        console.log( await results);
+        console.log(await results);
     }
-
-    // Obtiene un arreglo de objetos, donde cada objeto es un videojuego con su información.
-    /* Esta ruta debe obtener los primeros 15 videojuegos que se encuentren con la palabra recibida por query.
-    Debe poder buscarlo independientemente de mayúsculas o minúsculas.
-    Si no existe el videojuego, debe mostrar un mensaje adecuado.
-    Debe buscar tanto los de la API como los de la base de datos. */
 };
 
 
@@ -45,7 +38,6 @@ const postVideogamesHandler = async (req,res)=>{
     try {
     const {name,description,platforms,image,release,rating,genre}= req.body;
     const newVideoGame = await createVideoGame(name,description,platforms,image,release,rating,genre);
-    // newVideoGame.addGenre(genreId);
     res.status(201).json(newVideoGame);
         console.log(newVideoGame.dataValues);
     } catch (error) {
