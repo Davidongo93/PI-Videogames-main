@@ -3,7 +3,6 @@ const {Videogame} = require('../db.js');
 const {createVideoGame,getVideogameById, getVideogameByName, getAllGames} = require ('../controllers/videogamesControllers.js')
 
 // Getting handlers.
-// Esta ruta debe obtener los primeros 15 videojuegos que se encuentren con la palabra recibida por query.
 const getVideogamesHandler = async (req,res)=>  {
     const {name} = req.query;
     const results = name?await getVideogameByName(name):await getAllGames();
@@ -43,11 +42,6 @@ const postVideogamesHandler = async (req,res)=>{
     } catch (error) {
         res.status(400).json({error:error.message});
     }
-
-/*  Esta ruta recibirá todos los datos necesarios para crear un videojuego y relacionarlo con sus géneros solicitados.
-Toda la información debe ser recibida por body.
-Debe crear un videojuego en la base de datos, y este debe estar relacionado con sus géneros indicados (al menos uno).
- */
 };
 
 module.exports = {
