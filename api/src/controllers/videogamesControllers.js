@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const { Videogame } = require('../db.js');
+const { Videogame, Genre } = require('../db.js');
 const axios = require ('axios');
 const {KEY,URL} = process.env;
 
@@ -8,6 +8,7 @@ const {KEY,URL} = process.env;
 //Debe crear un videojuego en la base de datos, y este debe estar relacionado con sus géneros indicados (al menos uno).
 const createVideoGame = async (name,description,platforms,image,release,rating,genre) => {
     return await Videogame.create({name,description,platforms,image,release,rating,genre});
+
 };
 
 //controller get videogame by id.
@@ -32,6 +33,7 @@ const cleanArray = (arr) => {
       const platforms = [elem.platforms, elem.parent_platforms]
           .flatMap(platform => platform.map(p => p.platform.name))
           .filter((name, index, arr) => arr.indexOf(name) === index);
+      const genres = elem.genres.map(g => g.id);
       return {
           id: elem.id,
           name: elem.name,
@@ -40,7 +42,7 @@ const cleanArray = (arr) => {
           image: elem.background_image,
           released: elem.released,
           rating: elem.rating,
-          genre: "NIY",
+          genre: genres,
           created: false
       };
   });

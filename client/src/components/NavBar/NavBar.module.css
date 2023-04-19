@@ -1,0 +1,21 @@
+.Container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+  }
+  
+  .Container a {
+    margin-right: 10px;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .Container a:hover {
+    text-decoration: underline;
+  }
+  
