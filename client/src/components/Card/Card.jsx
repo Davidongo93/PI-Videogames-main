@@ -3,12 +3,12 @@ import styles from './Card.module.css';
 const Card = (props)=>{
     return(
         <div className={styles.Container}>
-            <p>A single card.</p>
-            <p>Title: {props.name}</p>
+            <p className={styles.text}>A single card.</p>
+            <p className={styles.text}>Title: {props.name}</p>
             <img className={styles.image} src={props.image} alt="" />
-            <p>Release date:{props.released}</p>
-            <p>Rating: {props.rating}</p>
+            <p className={styles.text}>Release date:{props.released}</p>
+            <p className={styles.text}>Rating: {props.rating}</p>
         </div>
     )
 };
-export default Card;
+export default Card; 

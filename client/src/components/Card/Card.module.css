@@ -1,19 +1,31 @@
 .Container {
-  display:block;
+  display: block;
   justify-content: flex-start;
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: #000000;
   padding: 10px;
   border-radius: 20px;
   border: 1px solid black;
-  box-shadow: -1px 12px 42px 19px rgba(0,0,0,0.69);
+  box-shadow: 12px 12px 10px 12px rgba(6, 43, 28, 0.69);
   flex-direction: column;
+  transition: all 0.3s ease; /* Agrega una transición suave */
+
+  &:hover {
+    transform: scale(1.1); /* Agranda el contenedor al acercar el mouse */
+    box-shadow: 12px 12px 10px 12px rgba(152, 81, 196, 0.69); /* Cambia la sombra a púrpura */
+  }
+}
+
+.text {
+  color: #fff; /* Cambia el color del texto a blanco */
 }
 
 .image {
-    width: 200px;
-    height: auto;
-  }
-  
+  width: 200px;
+  height: auto;
+  transition: all 0.7s ease; /* Agrega una transición suave */
 
-  
+  &:hover {
+    transform: scale(1.1); /* Agranda la imagen al acercar el mouse */
+  }
+}
