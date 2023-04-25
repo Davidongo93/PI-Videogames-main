@@ -1,4 +1,6 @@
 import styles from './Landing.module.css';
+import {Link} from "react-router-dom";
+
 import { useState, useEffect } from 'react';
 
 const Landing = () => {
@@ -22,8 +24,13 @@ const Landing = () => {
         </div>
       ) : (
         <div className={styles.content}>
-          <h1>Welcome to My Landing Page</h1>
-          <button className={styles.button}>Go to Home</button>
+          <h1>Welcome to videogames APP</h1>
+
+
+          <Link to="/home">
+ <button className={styles.button}>Go to Home</button>
+          </Link>
+
         </div>
       )}
     </div>
