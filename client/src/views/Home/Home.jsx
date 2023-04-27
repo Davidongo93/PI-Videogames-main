@@ -3,6 +3,7 @@ import CardsContainer from '../../components/CardsContainer/CardsContainer';
 import { useEffect , useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { getVideogames } from '../../components/Redux/actions';
+import Loader from '../../components/Utils/Loader/Loader';
 
 const Home = () => {
 // spinner
@@ -11,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 // dispatch
@@ -25,7 +26,8 @@ const Home = () => {
 <>
   {loading ?(
 
-    <div className={styles.customLoader}></div>
+  <Loader/>
+    
   ) : (
     <div className={styles.envelop}>
      <div className={styles.container}>

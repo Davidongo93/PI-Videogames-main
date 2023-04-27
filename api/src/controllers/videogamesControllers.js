@@ -6,8 +6,8 @@ const {KEY,URL} = process.env;
 
 //Controller post videogame.
 //Debe crear un videojuego en la base de datos, y este debe estar relacionado con sus géneros indicados (al menos uno).
-const createVideoGame = async (name,description,platforms,image,release,rating,genre) => {
-    return await Videogame.create({name,description,platforms,image,release,rating,genre});
+const createVideoGame = async (name,description,platforms,image,released,rating,genre) => {
+    return await Videogame.create({name,description,platforms,image,released,rating,genre});
 
 };
 
@@ -20,7 +20,8 @@ const  getVideogameById = async (id,source) => {
         :await Videogame.findByPk(id);
         if (source === "api") {
             const { name, description, released, platforms } = response.data;
-            return { name, description, released, platforms };
+            const platformsName = platforms.map(data => data.platform.name)
+            return { name, description, released,platformsName};
           } else {
             return response;
           }

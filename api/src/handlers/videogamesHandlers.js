@@ -12,7 +12,7 @@ const getVideogamesHandler = async (req,res)=>  {
 
 } else{
         res.send (await results);
-        console.log(await results);
+        //console.log(await results);
     }
 };
 
@@ -33,10 +33,10 @@ const getVideogameByIdHandler = async (req,res)=>{
 
 // Posting handlers
 const postVideogamesHandler = async (req,res)=>{
-    const {name,description,platforms,image,release,rating,genre}= req.body;
+    const {name,description,platforms,image,released,rating,genre}= req.body;
     try {
-        if(!name||!description||!platforms||!image||!release||!rating||!genre) throw Error("Missing data");
-    const newVideoGame = await createVideoGame(name,description,platforms,image,release,rating,genre);
+        if(!name||!description||!platforms||!image||!released||!rating||!genre) throw Error("Missing data");
+    const newVideoGame = await createVideoGame(name,description,platforms,image,released,rating,genre);
     
     res.status(201).json(newVideoGame);
         console.log(newVideoGame.dataValues);

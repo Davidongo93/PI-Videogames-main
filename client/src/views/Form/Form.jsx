@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import axios from 'axios';
 const Form = ()=>{
 
     const [form,setForm] = useState({
@@ -7,7 +7,7 @@ const Form = ()=>{
         description: "",
         platforms: "",
         image: "",
-        release: "",
+        released: "",
         rating:"" ,
         genre:""
       });
@@ -17,7 +17,7 @@ const Form = ()=>{
         description: "",
         platforms: "",
         image: "",
-        release: "",
+        released: "",
         rating:"" ,
         genre:""
       });
@@ -29,37 +29,41 @@ const Form = ()=>{
       }
       const validate = (form) => {
         let errors = {};
-      
         if (!form.name) {
-          setErrors({...errors,name:"Please input a videogame name."})
-        }else{
-        setErrors({...errors,name:""})
+          errors = {...errors, name: "Please input a videogame name."}
+        } else {
+          errors = {...errors, name: ""}
         };
-
+      
         if (!form.description) {
-          setErrors({...errors,description:"Write a short description"})
-        }else{
-        setErrors({...errors,description:""})
+          errors = {...errors, description: "Write a short description"}
+        } else {
+          errors = {...errors, description: ""}
         };
-
       
+        setErrors(errors);
       };
-      
+      const submitHandler =(event)=>{
+        event.preventDefault()
+        axios.post("http://localhost:3001/videogames",form)
+        .then(res=>alert(res))
+        .catch(err=>alert(err));
+      }
 
 
     return(
         <>
         <h1>Create a new videogame</h1>
-        <form>
+        <form onSubmit={submitHandler}>
             <div>
                 <label htmlFor="">Game title: </label>
                 <input type="text" value={form.name} onChange={changeHandler} name="name"/>
-                <span>{errors.name}</span>
-            </div>
+               {errors.name && <span>{errors.name}</span>} 
+             </div>
             <div>
                 <label htmlFor="">Short description: </label>
                 <input type="textarea" value={form.description} onChange={changeHandler} name="description"/>
-                <span>{errors.description}</span>
+               {errors.description && <span>{errors.description}</span> } 
             </div>
             <div>
                 <label htmlFor="">Platforms: </label>
@@ -70,16 +74,27 @@ const Form = ()=>{
                 <input type="text" value={form.image} onChange={changeHandler} name="image"/>
             </div>
             <div>
-                <label htmlFor="">Release data: </label>
-                <input type="date" value={form.release} onChange={changeHandler} name="release"/>
+                <label htmlFor="">Released data: </label>
+                <input type="date" value={form.released} onChange={changeHandler} name="released"/>
             </div>
             <div>
-                <label htmlFor="">Rating: </label>
-                <input type="text" value={form.rating} onChange={changeHandler} name="rating"/>
-            </div>
+  <label htmlFor="">Rating: </label>
+  <select value={form.rating} onChange={changeHandler} name="rating">
+    <option value="">-- Select a rating --</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+</div>
+
             <div>
                 <label htmlFor="">Genre: </label>
                 <input type="text" value={form.genre} onChange={changeHandler} name="genre"/>
+            </div>
+            <div>
+                <button type="submit">submit</button>
             </div>
         </form>
         </>
