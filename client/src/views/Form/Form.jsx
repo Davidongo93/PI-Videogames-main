@@ -1,5 +1,8 @@
 import { useState } from "react";
 import axios from 'axios';
+
+import styles from './Form.module.css'
+
 const Form = ()=>{
 
     const [form,setForm] = useState({
@@ -52,33 +55,34 @@ const Form = ()=>{
 
 
     return(
-        <>
-        <h1>Create a new videogame</h1>
+      <div className={styles.Container}>
+        <div className={styles.card}>
+        <h1 className={styles.text}>Create a new videogame</h1>
         <form onSubmit={submitHandler}>
             <div>
-                <label htmlFor="">Game title: </label>
+                <label className={styles.text} htmlFor="">Game title: </label>
                 <input type="text" value={form.name} onChange={changeHandler} name="name"/>
-               {errors.name && <span>{errors.name}</span>} 
+               {errors.name && <span className={styles.text} >{errors.name}</span>} 
              </div>
             <div>
-                <label htmlFor="">Short description: </label>
+                <label  className={styles.text} htmlFor="">Short description: </label>
                 <input type="textarea" value={form.description} onChange={changeHandler} name="description"/>
-               {errors.description && <span>{errors.description}</span> } 
+               {errors.description && <span  className={styles.text} >{errors.description}</span> } 
             </div>
             <div>
-                <label htmlFor="">Platforms: </label>
+                <label  className={styles.text}  htmlFor="">Platforms: </label>
                 <input type="text" value={form.platforms} onChange={changeHandler} name="platforms"/> {/* array de opciones varias */}
             </div>
             <div>
-                <label htmlFor="">Image URL: </label>
+                <label   className={styles.text} htmlFor="">Image URL: </label>
                 <input type="text" value={form.image} onChange={changeHandler} name="image"/>
             </div>
             <div>
-                <label htmlFor="">Released data: </label>
+                <label   className={styles.text} htmlFor="">Released data: </label>
                 <input type="date" value={form.released} onChange={changeHandler} name="released"/>
             </div>
             <div>
-  <label htmlFor="">Rating: </label>
+  <label   className={styles.text} htmlFor="">Rating: </label>
   <select value={form.rating} onChange={changeHandler} name="rating">
     <option value="">-- Select a rating --</option>
     <option value="1">1</option>
@@ -90,14 +94,16 @@ const Form = ()=>{
 </div>
 
             <div>
-                <label htmlFor="">Genre: </label>
+                <label   className={styles.text} htmlFor="">Genre: </label>
                 <input type="text" value={form.genre} onChange={changeHandler} name="genre"/>
             </div>
             <div>
-                <button type="submit">submit</button>
+                <button   className={styles.button} type="submit">submit</button>
             </div>
         </form>
-        </>
+        </div>
+        </div>
+  
     )
 };
 

@@ -1,4 +1,4 @@
-.Container {
+.container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -8,7 +8,7 @@
     border: 0.5px solid black;
     opacity:0.98;
   }
-  
+
   .button {
     background: #595959;
     background-image: -webkit-linear-gradient(top, #595959, #2bb85a);
@@ -23,12 +23,12 @@
     -moz-box-shadow: 7px 6px 30px #780478;
     box-shadow: 7px 6px 30px #780478;
     color: #000000;
-    font-size: 20px;
-    padding: 8px 20px 10px 20px;
-    border: solid #121517 9px;
+    font-size: 14px;
+    padding: 4px 10px 5px 10px;
+    border: solid #121517 4px;
     text-decoration: none;
     font-family: 'zrnic', sans-serif;
-    margin-right: 30px;
+    margin-right: 10px;
   }
   
   .button:hover {
@@ -40,13 +40,15 @@
     background-image: linear-gradient(to bottom, #9d06b8, #07a82f);
     text-decoration:wavy;
   }
-  .envelop{
-    background-color: rgba(0, 0, 0, 0.571);
-    background-image: url('https://wallpaperaccess.com/full/2645205.jpg');
-    background-size:contain;
-    background-position: center;
-    padding: 15px;
+
+  input[type="search"] {
+    background-color: #595959;
+    color: #2e142b;
+    border: none;
+    border-radius: 20px;
+    padding: 4px 10px 5px 10px;
+    font-size: 14px;
+    font-family: 'zrnic', sans-serif;
+    margin-right: 10px;
   }
-  .searchBar{
-    margin-right: 300px;
-  }
+  

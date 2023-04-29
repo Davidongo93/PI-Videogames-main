@@ -19,14 +19,18 @@ const  getVideogameById = async (id,source) => {
         ?await axios.get(`${URL}/games/${id}?key=${KEY}`)
         :await Videogame.findByPk(id);
         if (source === "api") {
-            const { name, description, released, platforms } = response.data;
-            const platformsName = platforms.map(data => data.platform.name)
-            return { name, description, released,platformsName};
+            const { id,name, description, released, platforms,background_image,rating,genres} = response.data;
+            const platformsName = platforms.map(data => data.platform.name);
+            genresName = genres.map(data=>data.name); 
+            return { id,name, description, released, platformsName,background_image,rating,genresName};
           } else {
             return response;
           }
     };
-    
+
+/* Imagen.
+Rating.
+Géneros. */
 // controller get all games.
 
 const cleanArray = (arr) => {

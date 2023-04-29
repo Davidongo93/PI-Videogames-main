@@ -1,13 +1,47 @@
-.card {
-    position: relative;
-    background-size:auto;
-    background-color: #300930;
-    background-position: center;
-    padding: 10px;
-    height: 80vh;
+@font-face {
+    font-family: 'zrnic';
+    src: url('../../../fonts/zrnic\ rg.ttf');
+  }
+.Container {
     display: flex;
     justify-content:space-between;
     align-items: center;
+    background-color: #3a3838;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid black;
+    flex-direction: column;
+    
+  }
+
+  .image{
+    max-width:100%;
+    max-height:auto;
+  }
+  
+  .lists{
+    display: flex;
+    
+    border:1px solid black;
+    border-radius:  20px;
+    padding: 10px;
+    display: flex;
+    justify-content:space-between;
+
+
+
+  }
+  .text {
+    color: #777777; /* Cambia el color del texto a blanco */
+    font-family: 'zrnic', sans-serif;
+    
+  }
+
+  .card {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #000000;
     padding: 10px;
     border-radius: 20px;
     border: 1px solid black;
@@ -16,21 +50,26 @@
     opacity: 0.8;
   
     &:hover {
-      box-shadow: 12px 12px 10px 12px rgba(152, 81, 196, 0.69);
+      box-shadow: 12px 12px 10px 12px rgba(152, 81, 196, 0.69); /* Cambia la sombra a púrpura */
     }
   }
 
-  .Container {
-    background-image: url('https://wallpapercave.com/wp/wp11431137.jpg');
-    background-size:cover;
-    background-position:center;
-    padding: 60px;
-    position:relative;
-    
-  }
-
-  .text {
-    color: #706e6e;
+  .card1 {
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    background-color: #000000;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid black;
+    box-shadow: 12px 12px 10px 12px rgba(33, 98, 72, 0.69);
+    flex-direction:row;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+  
+    &:hover {
+      box-shadow: 12px 12px 10px 12px rgba(152, 81, 196, 0.69); /* Cambia la sombra a púrpura */
+    }
   }
 
   .button {
@@ -63,4 +102,9 @@
     background-image: -o-linear-gradient(top, #9d06b8, #07a82f);
     background-image: linear-gradient(to bottom, #9d06b8, #07a82f);
     text-decoration:wavy;
+    box-shadow: 7px 6px 30px #07a82f;
+  }
+
+  .Containerbtn {
+     padding: 50px;
   }
